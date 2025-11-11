@@ -8,7 +8,7 @@
         <strong>Official Python Implementation for our AAAI 2026 Paper</strong>
     </p>
     <p>
-        <a href="[LINK_TO_YOUR_PAPER_PDF_WHEN_AVAILABLE]">
+        <a href="[https://arxiv.org/abs/2506.17670]">
             <img src="https://img.shields.io/badge/Paper-PDF-red?style=for-the-badge" alt="Paper PDF">
         </a>
         <a href="https://www.python.org/">
