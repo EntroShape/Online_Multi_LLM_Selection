@@ -1,37 +1,135 @@
+
 <div align="center">
-    <h1> Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution
+    <h1> [AAAI'26] Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution
 </div>
 
+<div align="center">
+    <p>
+        <strong>Official Python Implementation for our AAAI 2026 Paper</strong>
+    </p>
+    <p>
+        <a href="[LINK_TO_YOUR_PAPER_PDF_WHEN_AVAILABLE]">
+            <img src="https://img.shields.io/badge/Paper-PDF-red?style=for-the-badge" alt="Paper PDF">
+        </a>
+        <a href="https://www.python.org/">
+            <img src="https://img.shields.io/badge/Python-3.9+-blue?style=for-the-badge&logo=python" alt="Python">
+        </a>
+        <a href="LICENSE">
+            <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+        </a>
+    </p>
+</div>
 
-This repository provides an implementation of the algorithms presented in our paper: **"Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution."**
+## 🎯 The Core Idea
 
-# Motivation
+Choosing the right Large Language Model (LLM) is hard. More powerful models are expensive and slow, while cheaper models often lack reasoning ability. This problem becomes even more challenging in real-world conversations, where a user's prompt evolves unpredictably based on the LLM's previous responses.
 
-Large Language Models (LLMs) exhibit diverse capabilities, costs, and performance characteristics. Selecting the optimal LLM for a given user query, particularly in dynamic, multi-step interactions where the prompt evolves based on prior responses (unstructured context evolution), is a significant challenge. Traditional methods often struggle with this unpredictability.
+This repository provides the implementation for **"Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution."** We propose a lightweight and adaptive framework that treats this challenge as a **contextual bandit** problem. Our method intelligently selects the most suitable LLM at each turn of a conversation, based solely on the current context, and provably learns to make better, more cost-effective decisions over time—all without requiring complex environment simulations or offline training.
 
-This paper proposes a novel **contextual bandit framework** for adaptive multi-LLM selection in such online settings. By making "myopic" decisions—choosing the best LLM for the current context at each step—the framework avoids the need to model or predict complex future context changes. This approach enables efficient, theoretically grounded LLM selection without offline datasets or model-specific fine-tuning.
 
-This repository implements the core algorithms from the paper, designed to improve accuracy and cost-efficiency in real-time, adaptive multi-LLM systems.
 
-# How to Use
+---
 
-To run the code, please first create your own Openrouter API key with credit before running the code. If you want to run it on the Colab directly, then please upload the Math500 dataset under the same directory. After that, we can directly run the code. 
+## ✨ Key Features
 
-# Data Source and Note
+*   **Adaptive LLM Routing:** A theoretically-grounded framework for real-time LLM selection.
+*   **Implementation of Three Core Algorithms:**
+    1.  `Greedy LinUCB`: Optimizes for accuracy without budget constraints.
+    2.  `Budget-Aware (B.A.) LinUCB`: Balances accuracy and cost to meet a defined budget.
+    3.  `Positionally-Aware Knapsack (PAKH)`: A novel heuristic that prioritizes high-quality responses early in an interaction, mimicking user preference.
+*   **Experiment Replication:** Code to replicate the experiments on the **Math500** dataset, as presented in our paper.
 
-In the paper, we have experimented with the method on four datasets (Math500, AIME, GPQA, MMLU-Pro). This repo, in particular, is the implementation of the math500 dataset only. Please cite also the corresponding dataset appropriately if used. 
+---
 
-# Citation
-Please cite the work if our work have contributed to your work!
+## 📊 Visualizing the Performance
+
+Our methods consistently achieve a better trade-off between accuracy and operational cost compared to baseline approaches, occupying the desirable top-left region of the performance plot.
+
+
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/EntroShape/Online-Multi-LLM-Selection.git
+cd Online-Multi-LLM-Selection
+```
+
+### 2. Install Dependencies
+
+It is recommended to use a virtual environment.
+
+```bash
+# Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+
+# Install required packages
+pip install -r requirements.txt
+```
+
+### 3. Set Up Your API Key
+
+Our framework uses the [OpenRouter API](https://openrouter.ai/) to access various LLMs.
+
+Create a file named `.env` in the root of the project directory and add your OpenRouter API key to it:
+
+```env
+# .env file
+OPENROUTER_API_KEY="your-secret-api-key-here"
+```
+
+### 4. Prepare the Dataset
+
+This repository includes the code for the Math500 dataset experiments.
+
+1.  Download the dataset from its original source.
+2.  Place the dataset files into a `./data/math500/` directory within the project.
+
+---
+
+## 💻 Running the Experiments
+
+You can run an experiment using `main.py`. Use the command-line arguments to specify the algorithm and other parameters.
+
+**Example: Running the PAKH algorithm**
+```bash
+python main.py --algorithm PAKH
+```
+
+### Available Algorithms
+
+| Argument | Algorithm Name | Description |
+| :--- | :--- | :--- |
+| `GREEDY` | Greedy LinUCB | Maximizes accuracy at each step. |
+| `BUDGET_AWARE` | Budget-Aware LinUCB | Maximizes accuracy while staying within a cost budget. |
+| `PAKH` | Positionally-Aware Knapsack | Uses a knapsack heuristic to prioritize strong LLMs early. |
+
+For example, to run the Budget-Aware algorithm:
+```bash
+python main.py --algorithm BUDGET_AWARE
+```
+
+---
+
+## 📜 Citation
+
+If you find our work useful in your research, please consider citing our paper:
 
 ```bibtex
-@misc{poon2025online,
-      title={{Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution}}, 
-      author={Manhin Poon and XiangXiang Dai and Xutong Liu and Fang Kong and John C.S. Lui and Jinhang Zuo},
-      year={2025},
-      eprint={2506.17670},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2506.17670}
+@inproceedings{poon2026multillm,
+  title={{Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution}},
+  author={Poon, Manhin and Dai, XiangXiang and Liu, Xutong and Kong, Fang and Lui, John C.S. and Zuo, Jinhang},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={40},
+  year={2026}
 }
 ```
+
+## 🙏 Acknowledgements
+
+*   We thank the creators of the [Math500 dataset](https://github.com/hendrycks/math) for their contribution to the community.
+*   This framework is powered by the excellent services provided by [OpenRouter](https://openrouter.ai/).
