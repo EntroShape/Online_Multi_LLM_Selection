@@ -102,27 +102,31 @@ This repository includes the code for the Math500 dataset experiments.
 
 ## 💻 Running the Experiments
 
-You can run an experiment using `main.py`. Use the command-line arguments to specify the algorithm and other parameters.
+The implementation for each of our core algorithms is provided in a separate Jupyter Notebook located in the `Algorithm/` directory.
 
-**Example: Running the PAKH algorithm**
-```bash
-python main.py --algorithm PAKH
-```
+### Algorithm Notebooks
 
-### Available Algorithms
-
-| Argument | Algorithm Name | Description |
+| Filename | Algorithm Name | Description |
 | :--- | :--- | :--- |
-| `GREEDY` | Greedy LinUCB | Maximizes accuracy at each step. |
-| `BUDGET_AWARE` | Budget-Aware LinUCB | Maximizes accuracy while staying within a cost budget. |
-| `PAKH` | Positionally-Aware Knapsack | Uses a knapsack heuristic to prioritize strong LLMs early. |
+| **`Algo1.ipynb`** | Budget-Aware (B.A.) LinUCB | Maximizes accuracy while staying within a cost budget. |
+| **`Algo2.ipynb`** | Greedy LinUCB | *(Assumption)* Maximizes accuracy at each step without budget constraints. |
+| **`Algo3.ipynb`** | Positionally-Aware Knapsack (PAKH) | Uses a knapsack heuristic to prioritize strong LLMs early. |
 
-For example, to run the Budget-Aware algorithm:
-```bash
-python main.py --algorithm BUDGET_AWARE
-```
+### How to Run
 
----
+Before running the notebooks, please ensure you have completed the setup steps:
+✅ The `.env` file with your OpenRouter API key is created.
+✅ The Math500 dataset is located in the `./data/math500/` directory.
+
+1.  **Start Jupyter Lab or Notebook** from your terminal in the project's root directory:
+    ```bash
+    jupyter lab
+    # OR
+    jupyter notebook
+    ```
+2.  **Navigate to the `Algorithm/` Directory** in the Jupyter interface.
+3.  **Open the Notebook** you wish to run (e.g., `Algo3.ipynb` for the PAKH algorithm).
+4.  **Execute the Cells:** You can run all cells in the notebook to execute the full experiment from start to finish. The notebooks are self-contained and will guide you through the process.
 
 ## 📜 Citation
 
