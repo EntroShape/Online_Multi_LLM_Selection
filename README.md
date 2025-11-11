@@ -26,7 +26,11 @@ Choosing the right Large Language Model (LLM) is hard. More powerful models are 
 
 This repository provides the implementation for **"Online Multi-LLM Selection via Contextual Bandits under Unstructured Context Evolution."** We propose a lightweight and adaptive framework that treats this challenge as a **contextual bandit** problem. Our method intelligently selects the most suitable LLM at each turn of a conversation, based solely on the current context, and provably learns to make better, more cost-effective decisions over time—all without requiring complex environment simulations or offline training.
 
-
+<div align="center">
+    <img src="Pic/Framework.png" alt="Our proposed framework for online multi-LLM selection" width="700">
+    <br>
+    <em>Figure 1: Our proposed framework for online multi-LLM selection.</em>
+</div>
 
 ---
 
@@ -46,6 +50,11 @@ This repository provides the implementation for **"Online Multi-LLM Selection vi
 Our methods consistently achieve a better trade-off between accuracy and operational cost compared to baseline approaches, occupying the desirable top-left region of the performance plot.
 
 
+<div align="center">
+    <img src="Pic/Performance.png" alt="Average accuracy vs. average cost comparison" width="600">
+    <br>
+    <em>Figure 2: Average accuracy vs. average cost. Our proposed methods (circles) outperform baselines.</em>
+</div>
 
 ---
 
