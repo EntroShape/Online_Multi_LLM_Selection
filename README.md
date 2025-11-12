@@ -108,9 +108,9 @@ The implementation for each of our core algorithms is provided in a separate Jup
 
 | Filename | Algorithm Name | Description |
 | :--- | :--- | :--- |
-| **`Algo1.ipynb`** | Budget-Aware (B.A.) LinUCB | Maximizes accuracy while staying within a cost budget. |
-| **`Algo2.ipynb`** | Greedy LinUCB | *(Assumption)* Maximizes accuracy at each step without budget constraints. |
-| **`Algo3.ipynb`** | Positionally-Aware Knapsack (PAKH) | Uses a knapsack heuristic to prioritize strong LLMs early. |
+| **`Algo1.ipynb`** | Budget-Aware (B.A.) LinUCB |  Maximizes accuracy at each step without budget constraints.  |
+| **`Algo2.ipynb`** | Greedy LinUCB | Maximizes accuracy while staying within a cost budget. |
+| **`Algo3.ipynb`** | Positionally-Aware Knapsack (PAKH) | Uses a knapsack heuristic to prioritize strong LLMs with budget consideration. |
 
 ### How to Run
 
